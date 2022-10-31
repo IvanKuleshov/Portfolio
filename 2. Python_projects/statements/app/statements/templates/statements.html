@@ -1,0 +1,66 @@
+<html>
+
+  <head>
+    <link rel="shortcut icon" href="{{ url_for('.static', filename='favicon.ico')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <title>Выписки</title>
+
+  </head>
+<style>
+body {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+  /*text-shadow: 0.5px 0.5px 0.5px #ababab;*/
+}
+input[type=text] {
+  padding: 8px 16px;
+  font-size: 16px;
+  margin: 8px 0;
+  background-color: Gainsboro;
+  box-sizing: border-box;
+  border: 2px solid Red;
+  border-radius: 4px;
+}
+input[type=button], input[type=submit], input[type=reset] {
+  border-radius: 12px;
+  font-size: 16px;
+  background-color: AntiqueWhite;
+  border: none;
+  color: black;
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 8px 16px;
+  text-decoration: none;
+  margin: 8px 0;
+  cursor: pointer;
+}
+.cell-highlight {
+  background-color: gold;
+  font-weight: bold;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: Gainsboro;
+}
+
+tbody tr:nth-child(even) {
+  background-color: AntiqueWhite;
+}
+th, td {
+	padding: 8px;
+}
+
+</style>
+  <body>
+    <b> <h1> <a href="http://statements.fondgkh-nso.ru">Выписки переехали на новый адрес (кликнуть чтобы перейти)</a></h1>  </b>
+    <form method="POST" action="{{ url_for('statements.statement') }}">
+      {{ form.cadastral }}
+      {{ form.statement }}
+      {{ form.submit }}
+      {{ table }}
+
+    </form>
+
+  </body>
+
+</html>
